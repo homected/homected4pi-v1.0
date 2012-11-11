@@ -1,0 +1,46 @@
+xAP SMS Schema
+
+
+Class=SMS.Message
+
+outbound
+{
+msg=(Message text upto 128 characters)
+--mandatory
+num=(Telephone number to send to)
+--mandatory
+}
+
+Class=SMS.Receipt
+
+Receipt
+{
+msg=(Text of sent message)
+--mandatory
+num=(Telephone number)
+--mandatory
+Sent=(Yes/No i.e. was message sent)
+--mandatory
+Error=(Error message or None)
+--mandatory
+Credits=(Number of credits left)
+--optional
+}
+
+Possible Error Messages
+None
+No FROM or PIN Specified
+Incorrect PIN
+Account suspended
+Insufficient credits
+Message sending failed
+Format of TO number not recognised
+Format of FROM number not recognised
+Unable to access server
+HTML server error
+
+
+
+
+
+Copyright © by Mi4.biz All Right Reserved.

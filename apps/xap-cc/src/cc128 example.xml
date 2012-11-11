@@ -1,0 +1,58 @@
+<msg>
+	<src>CC128-v0.11</src>
+	<dsb>00898</dsb>
+	<time>15:00:58</time>
+	<tmpr>28.2</tmpr>
+	<sensor>0</sensor>
+	<id>00077</id>
+	<type>1</type>
+	<ch1>
+		<watts>00501</watts>
+	</ch1>
+</msg>
+
+<msg>
+	<src>CC128-v1.29</src>
+	<dsb>00381</dsb>
+	<time>21:02:08</time>
+	<tmpr>26.1</tmpr>
+	<sensor>9</sensor>
+	<id>02063</id>
+	<type>2</type>
+	<imp>0000030733</imp>
+	<ipu>1000</ipu>
+</msg>
+
+<msg>
+	<src>CC128-v0.11</src>
+	<dsb>00898</dsb>
+	<time>15:01:00</time>
+	<hist>
+		<dsw>00899</dsw>
+		<type>1</type>
+		<units>kwhr</units>
+		<data>
+			<sensor>0</sensor>
+			<h746>0.593</h746>
+			<h744>0.708</h744>
+			<h742>0.875</h742>
+			<h740>1.342</h740>
+		</data>
+		<data>
+			<sensor>1</sensor>
+			<h746>0.000</h746>
+			<h744>0.000</h744>
+			<h742>0.000</h742>
+			<h740>0.000</h740>
+		</data>
+		...
+		<data>
+			<sensor>9</sensor>
+			<h746>0.000</h746>
+			<h744>0.000</h744>
+			<h742>0.000</h742>
+			<h740>0.000</h740>
+		</data>
+	</hist>
+</msg>
+

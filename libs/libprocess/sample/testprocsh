@@ -1,0 +1,16 @@
+#!/bin/sh
+ 
+case "$1" in
+        start)
+              /usr/sbin/testproc
+              ;;
+        stop)
+              test -e /var/run/xaphub.pid || exit 2
+              kill `cat /var/run/xaphub.pid`
+              ;;
+        *)
+              echo "Use: $0 {start|stop}"
+              exit 1
+              ;;
+esac
+exit 0

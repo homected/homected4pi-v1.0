@@ -1,0 +1,29 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          xap-cosm
+# Required-Start:    $syslog
+# Required-Stop:     $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: xAP Cosm Connector
+# Description:
+#
+### END INIT INFO 
+
+case "$1" in
+        start)
+              /usr/sbin/xap-cosm
+              /usr/sbin/xap-cosm-updater
+              ;;
+        stop)
+			  test -e /var/run/xap-cosm-updater.pid || exit 2
+			  kill `cat /var/run/xap-cosm-updater.pid`
+              test -e /var/run/xap-cosm.pid || exit 2
+              kill `cat /var/run/xap-cosm.pid`
+              ;;
+        *)
+              echo "Use: $0 {start|stop}"
+              exit 1
+              ;;
+esac
+exit 0

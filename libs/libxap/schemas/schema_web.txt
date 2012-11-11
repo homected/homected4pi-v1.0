@@ -1,0 +1,39 @@
+Web.Service
+
+
+These schemas are used by the xAP Intranet apps to annouce their services to other apps and for apps to request list of services.
+
+
+This is used to annouce Intranet services. It should be sent at startup and every 5 minutes. A .stop should be sent at close.
+
+Class=Web.Service
+
+Server.[Start|Stop] (Usually this is Start for a running app. Stop signifies the app is closing down)
+{
+Name=(Name of application)
+--mandatory
+Desc=(Description of application)
+--mandatory
+PC=(Name of PC running the application)
+--mandatory
+Icon=(URL of icon for the application. This will be used in other xAP Intranet application's web pages)
+--mandatory
+URL=(URL of the home page of the application. This is the url where a user is sent to if they click on the application icon or name in another Intranet application or Intranet launcher)
+--mandatory
+RSS.X=(URL of the apps RSS feed. X is a sequential number)
+--optional and repeatable
+RSSn.X=(Name for the corresponding rss feed. X should match the number in the RSS.X above)
+--optional and repeatable
+}
+
+
+This is used by any app to trigger any Intranet application to send the above message.
+
+Class=Web.Service
+
+Request
+{
+}
+
+
+Copyright © by Mi4.biz All Right Reserved.

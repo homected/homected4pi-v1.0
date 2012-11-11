@@ -1,0 +1,26 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          xap-cc
+# Required-Start:    $syslog
+# Required-Stop:     $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: xAP CurrentCost Connector
+# Description:
+#
+### END INIT INFO 
+
+case "$1" in
+        start)
+              /usr/sbin/xap-cc
+              ;;
+        stop)
+              test -e /var/run/xap-cc.pid || exit 2
+              kill `cat /var/run/xap-cc.pid`
+              ;;
+        *)
+              echo "Use: $0 {start|stop}"
+              exit 1
+              ;;
+esac
+exit 0
