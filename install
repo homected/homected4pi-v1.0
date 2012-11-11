@@ -1,0 +1,11 @@
+#!/bin/bash
+clear
+echo "Welcome to homected4pi installer!!!"
+echo "==================================="
+echo ""
+echo " Creating directories..."
+mkdir config
+mkdir logs
+echo ""
+echo " Installing libxml2..."
+
