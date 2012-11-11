@@ -1,0 +1,3 @@
+#!/bin/bash
+clear
+echo "Welcome to homected4pi installer!!!"
