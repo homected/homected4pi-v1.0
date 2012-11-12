@@ -6,7 +6,7 @@ echo ""
 echo " Creating directories..."
 mkdir config
 mkdir logs
-mkdir /var/www
+sudo mkdir /var/www
 sudo chown -R $USER /var/www
 echo ""
 echo " Installing libxml2..."
