@@ -20,3 +20,5 @@ sudo apt-get install vsftpd -q
 echo ""
 echo " Compiling libraries..."
 (cd libs; make)
+echo " Compiling binaries..."
+(cd apps; make)
