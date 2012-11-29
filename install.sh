@@ -5,9 +5,9 @@ echo "Welcome to homected4pi installer!!!"
 echo "==================================="
 echo ""
 echo "*** Creating directories..."
-sudo test -e /etc/homected4pi || mkdir -p /etc/homected4pi
-sudo test -e /var/homected4pi || mkdir -p /var/homected4pi
-sudo test -e /var/www || mkdir -p /var/www
+test -e /etc/homected4pi || sudo mkdir -p /etc/homected4pi
+test -e /var/homected4pi || sudo mkdir -p /var/homected4pi
+test -e /var/www || sudo mkdir -p /var/www
 sudo chown -R $USER /var/www
 echo ""
 echo "*** Installing libxml2..."
