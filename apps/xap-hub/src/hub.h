@@ -23,9 +23,9 @@
 
 #define XML_ENCODING 			"ISO-8859-1"							// Xml encoding
 #define XML_VALUE_LEN			30										// Xml value max length
-#define SETTINGS_FILE			"/home/homected/config/xap-hub.xml"		// Xml settings file
-#define LOG_EVENTS_FILE			"/home/homected/logs/xap-hub_logevn.txt"// Events log file
-#define LOG_ERRORS_FILE			"/home/homected/logs/xap-hub_logerr.txt"// Errors log file
+#define SETTINGS_FILE			"/home/homected4pi/config/xap-hub.xml"		// Xml settings file
+#define LOG_EVENTS_FILE			"/home/homected4pi/logs/xap-hub_logevn.txt"// Events log file
+#define LOG_ERRORS_FILE			"/home/homected4pi/logs/xap-hub_logerr.txt"// Errors log file
 
 #define XAP_VENDOR				"Homected"		// Default VENDOR
 #define XAP_DEVICE				"xAP-Hub"		// Default DEVICE
