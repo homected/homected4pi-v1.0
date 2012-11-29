@@ -5,8 +5,11 @@ echo "Welcome to homected4pi installer!!!"
 echo "==================================="
 echo ""
 echo "*** Creating directories..."
+sudo chown -R $USER /bin/homected4pi
 test -e /etc/homected4pi || sudo mkdir -p /etc/homected4pi
+sudo chown -R $USER /etc/homected4pi
 test -e /var/homected4pi || sudo mkdir -p /var/homected4pi
+sudo chown -R $USER /var/homected4pi
 test -e /var/www || sudo mkdir -p /var/www
 sudo chown -R $USER /var/www
 echo ""
