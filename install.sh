@@ -23,5 +23,5 @@ echo "*** Compiling libraries..."
 (cd libs; make)
 echo ""
 echo "*** Compiling binaries..."
-(cd apps; make)
+(cd apps; sudo make)
 echo ""

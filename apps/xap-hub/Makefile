@@ -47,7 +47,7 @@ copy_files:
 	# You need to be root to run this makefile correctly!!!
 	# =====================================================
 	#
-	mv /home/homected/apps/xap-hub/bin/xap-hub /usr/sbin/
+	mv bin/xap-hub /usr/sbin/
 	cp xap-hub /etc/init.d/
 	
 chg_permissions:
