@@ -14,7 +14,7 @@ echo "*** Installing libxml2..."
 sudo apt-get install libxml2 libxml2-dev -q -y
 echo ""
 echo "*** Installing sqlite3..."
-sudo apt-get install sqlite3 sqlite3-dev -q
+sudo apt-get install sqlite3 libsqlite3-dev -q
 echo ""
 echo "*** Installing FTP server..."
 sudo apt-get install vsftpd -q
