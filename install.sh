@@ -1,5 +1,6 @@
 #!/bin/bash
 clear
+echo ""
 echo "Welcome to homected4pi installer!!!"
 echo "==================================="
 echo ""
@@ -10,7 +11,7 @@ sudo mkdir /var/www
 sudo chown -R $USER /var/www
 echo ""
 echo "*** Installing libxml2..."
-sudo apt-get install libxml2 libxml2-dev -q
+sudo apt-get install libxml2 libxml2-dev -q -y
 echo ""
 echo "*** Installing sqlite3..."
 sudo apt-get install sqlite3 sqlite3-dev -q
@@ -20,5 +21,7 @@ sudo apt-get install vsftpd -q
 echo ""
 echo "*** Compiling libraries..."
 (cd libs; make)
+echo ""
 echo "*** Compiling binaries..."
 (cd apps; make)
+echo ""
