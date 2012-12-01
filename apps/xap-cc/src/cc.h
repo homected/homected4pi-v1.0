@@ -23,9 +23,9 @@
 #define LOG_EVENTS_FILE				"xap-cc_logevn.txt"	// Events log file
 #define LOG_ERRORS_FILE				"xap-cc_logerr.txt"	// Errors log file
 #else
-#define SETTINGS_FILE				"/home/homected/config/xap-cc.xml"		// Xml settings file
-#define LOG_EVENTS_FILE				"/home/homected/logs/xap-cc_logevn.txt"	// Events log file
-#define LOG_ERRORS_FILE				"/home/homected/logs/xap-cc_logerr.txt"	// Errors log file
+#define SETTINGS_FILE				"/etc/homected4pi/xap-cc.xml"			// Xml settings file
+#define LOG_EVENTS_FILE				"/var/homected4pi/xap-cc_logevn.txt"	// Events log file
+#define LOG_ERRORS_FILE				"/var/homected4pi/xap-cc_logerr.txt"	// Errors log file
 #endif
 
 // xAP Web service
