@@ -46,4 +46,4 @@ shared.o: shared.c shared.h
 	$(CC) -c shared.c $(INCLUDES) $(LIBS) $(CFLAGS)
 	
 clean:
-	rm -f xap-$(XAP) *.o ../bin/xap-$(XAP)
+	sudo rm -f xap-$(XAP) *.o ../bin/xap-$(XAP)

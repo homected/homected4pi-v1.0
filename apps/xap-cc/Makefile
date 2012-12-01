@@ -42,8 +42,8 @@ clean:
 	sudo rm -f /etc/init.d/xap-cc
 
 copy_files:
-	mv bin/xap-cc /usr/sbin/
-	cp xap-cc /etc/init.d/
+	sudo mv bin/xap-cc /usr/sbin/
+	sudo cp xap-cc /etc/init.d/
 	test -e /var/www/xap/connectors/xap-cc/images || mkdir -p  /var/www/xap/connectors/xap-cc/images
 	cp src/wserv.png /var/www/xap/connectors/xap-cc/images/
 	
