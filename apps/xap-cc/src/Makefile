@@ -39,6 +39,7 @@ OBJECTS=
 
 xap-$(XAP): shared.o
 	$(CC) -o xap-$(XAP) $(XAP).c $(INCLUDES) $(LIBS) $(LFLAGS) shared.o
+	test -e ../bin || mkdir -p  ../bin
 	mv xap-$(XAP) ../bin/xap-$(XAP)
 
 shared.o: shared.c shared.h

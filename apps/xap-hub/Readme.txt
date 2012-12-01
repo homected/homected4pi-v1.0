@@ -20,7 +20,7 @@ Setup:
 
 Compile with supplied makefile (enter command make) from a root terminal. The makefile adds the links to allow xap-hub is started at boot time.
 
-The xAP settings can be loaded from the xap-hub.xml file in /home/homected/config directory. 
+The xAP settings can be loaded from the xap-hub.xml file in /etc/homected4pi directory. 
 
 To uninstall type "make clean" from a root terminal.
 

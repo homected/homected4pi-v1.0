@@ -42,10 +42,10 @@ clean:
 	sudo rm -f /etc/init.d/xap-cc
 
 copy_files:
-	sudo mv /home/homected/apps/xap-cc/bin/xap-cc /usr/sbin/
-	sudo cp xap-cc /etc/init.d/
-	sudo test -e /var/www/xap/connectors/xap-cc/images || mkdir -p  /var/www/xap/connectors/xap-cc/images
-	sudo cp /home/homected/apps/xap-cc/src/wserv.png /var/www/xap/connectors/xap-cc/images/
+	mv bin/xap-cc /usr/sbin/
+	cp xap-cc /etc/init.d/
+	test -e /var/www/xap/connectors/xap-cc/images || mkdir -p  /var/www/xap/connectors/xap-cc/images
+	cp src/wserv.png /var/www/xap/connectors/xap-cc/images/
 	
 chg_permissions:
 	sudo chmod 775 /usr/sbin/xap-cc
