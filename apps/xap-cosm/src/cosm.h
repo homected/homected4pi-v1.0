@@ -28,15 +28,15 @@
 #define LOG_EVENTS_FILE				"xap-cosm_logevn.txt"	// Events log file
 #define LOG_ERRORS_FILE				"xap-cosm_logerr.txt"	// Errors log file
 #else
-#define SETTINGS_FILE				"/home/homected/config/xap-cosm.xml"		// Xml settings file
-#define LOG_EVENTS_FILE				"/home/homected/logs/xap-cosm_logevn.txt"	// Events log file
-#define LOG_ERRORS_FILE				"/home/homected/logs/xap-cosm_logerr.txt"	// Errors log file
+#define SETTINGS_FILE				"/etc/homected4pi/xap-cosm.xml"			// Xml settings file
+#define LOG_EVENTS_FILE				"/var/homected4pi/xap-cosm_logevn.txt"	// Events log file
+#define LOG_ERRORS_FILE				"/var/homected4pi/xap-cosm_logerr.txt"	// Errors log file
 #endif
 
 // xAP Web service
-#define WSERV_NAME					"xAP-Cosm"									// Web Service name
-#define WSERV_DESC					"Homected xAP Cosm connector"				// Web Service description
-#define WSERV_ICON					"/connectors/xap-cosm/images/wserv.png"		// Web service icon
+#define WSERV_NAME					"xAP-Cosm"								// Web Service name
+#define WSERV_DESC					"Homected xAP Cosm connector"			// Web Service description
+#define WSERV_ICON					"/connectors/xap-cosm/images/wserv.png"	// Web service icon
 
 // Settings tag's
 #define SETTINGS_TAG_NONE			0					// Type of tag read from Settings xml file

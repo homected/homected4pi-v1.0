@@ -29,7 +29,7 @@
 
 #define XAP_VENDOR				"Homected"		// Default VENDOR
 #define XAP_DEVICE				"xAP-Hub"		// Default DEVICE
-#define XAP_INSTANCE			"myHub"			// Default INSTANCE
+#define XAP_INSTANCE			"Hub"			// Default INSTANCE
 #define XAP_UID					"FF8001"		// Default UID
 #define XAP_PORT				3639			// Default Port
 #define XAP_HBEAT	 			60				// Default Heartbeat interval in secs

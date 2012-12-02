@@ -44,11 +44,11 @@ clean:
 	sudo rm -f /etc/init.d/xap-cosm
 
 copy_files:
-	sudo mv /home/homected/apps/xap-cosm/bin/xap-cosm /usr/sbin/
-	sudo mv /home/homected/apps/xap-cosm/bin/xap-cosm-updater /usr/sbin/
+	sudo mv bin/xap-cosm /usr/sbin/
+	sudo mv bin/xap-cosm-updater /usr/sbin/
 	sudo cp xap-cosm /etc/init.d/
-	sudo test -e /var/www/xap/connectors/xap-cosm/images || mkdir -p /var/www/xap/connectors/xap-cosm/images
-	sudo cp /home/homected/apps/xap-cosm/src/wserv.png /var/www/xap/connectors/xap-cosm/images/
+	test -e /var/www/xap/connectors/xap-cosm/images || mkdir -p /var/www/xap/connectors/xap-cosm/images
+	cp src/wserv.png /var/www/xap/connectors/xap-cosm/images/
 	
 chg_permissions:
 	sudo chmod 775 /usr/sbin/xap-cosm

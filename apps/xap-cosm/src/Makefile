@@ -41,12 +41,13 @@ OBJECTS=
 xap-$(XAP): shared.o
 	$(CC) -o xap-$(XAP)-updater $(XAP)-updater.c $(INCLUDES) $(LIBS) $(LFLAGS) shared.o
 	$(CC) -o xap-$(XAP) $(XAP).c $(INCLUDES) $(LIBS) $(LFLAGS) shared.o
-	mv xap-$(XAP) ../bin/xap-$(XAP)
-	mv xap-$(XAP)-updater ../bin/xap-$(XAP)-updater
+	test -e ../bin || mkdir -p  ../bin
+	sudo mv xap-$(XAP) ../bin/xap-$(XAP)
+	sudo mv xap-$(XAP)-updater ../bin/xap-$(XAP)-updater
 
 shared.o: shared.c shared.h
 	$(CC) -c shared.c $(INCLUDES) $(LIBS) $(CFLAGS)
 	
 clean:
-	rm -f xap-$(XAP) *.o ../bin/xap-$(XAP)
-	rm -f xap-$(XAP)-updater ../bin/xap-$(XAP)-updater
+	sudo rm -f xap-$(XAP) *.o ../bin/xap-$(XAP)
+	sudo rm -f xap-$(XAP)-updater ../bin/xap-$(XAP)-updater
