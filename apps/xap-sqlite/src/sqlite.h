@@ -23,9 +23,9 @@
 #define LOG_EVENTS_FILE				"xap-sqlite_logevn.txt"	// Events log file
 #define LOG_ERRORS_FILE				"xap-sqlite_logerr.txt"	// Errors log file
 #else
-#define SETTINGS_FILE				"/home/homected/config/xap-sqlite.xml"		// Xml settings file
-#define LOG_EVENTS_FILE				"/home/homected/logs/xap-sqlite_logevn.txt"	// Events log file
-#define LOG_ERRORS_FILE				"/home/homected/logs/xap-sqlite_logerr.txt"	// Errors log file
+#define SETTINGS_FILE				"/etc/homected4pi/xap-sqlite.xml"			// Xml settings file
+#define LOG_EVENTS_FILE				"/var/homected4pi/xap-sqlite_logevn.txt"	// Events log file
+#define LOG_ERRORS_FILE				"/var/homected4pi/xap-sqlite_logerr.txt"	// Errors log file
 #endif
 
 // xAP Web service

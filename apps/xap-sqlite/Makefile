@@ -31,31 +31,25 @@
 
 .PHONY:  src
 
-all: src copy_files chg_permissions set_inittab
+all: src copy_files chg_permissions
 
 src:
 	$(MAKE) -C $@
 
 clean:
 	$(MAKE) -C src $@
-	rm -f /usr/sbin/xap-sqlite
-	rm -f /etc/init.d/xap-sqlite
-	update-rc.d -f xap-sqlite remove
-
+	sudo rm -f /usr/sbin/xap-sqlite
+	sudo rm -f /etc/init.d/xap-sqlite
+	
 copy_files:
-	#
-	# You need to be root to run this makefile correctly!!!
-	# =====================================================
-	#
-	mv /home/homected/apps/xap-sqlite/bin/xap-sqlite /usr/sbin/
-	cp xap-sqlite /etc/init.d/
-	cp /home/homected/apps/xap-sqlite/src/wserv.png /home/homected/www/connectors/xap-sqlite/images/
+	sudo mv bin/xap-sqlite /usr/sbin/
+	sudo cp xap-sqlite /etc/init.d/
+	test -e /var/www/xap/connectors/xap-sqlite/images || mkdir -p /var/www/xap/connectors/xap-sqlite/images
+	cp src/wserv.png /var/www/xap/connectors/xap-sqlite/images/
 	
 chg_permissions:
-	chmod 775 /usr/sbin/xap-sqlite
-	chown root:root /usr/sbin/xap-sqlite
-	chmod 755 /etc/init.d/xap-sqlite
-	chown root:root /etc/init.d/xap-sqlite
+	sudo chmod 775 /usr/sbin/xap-sqlite
+	sudo chown root:root /usr/sbin/xap-sqlite
+	sudo chmod 755 /etc/init.d/xap-sqlite
+	sudo chown root:root /etc/init.d/xap-sqlite
 
-set_inittab:
-	#update-rc.d xap-sqlite defaults 75

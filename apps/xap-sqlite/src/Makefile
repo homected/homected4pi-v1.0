@@ -39,10 +39,11 @@ OBJECTS=
 
 xap-$(XAP): shared.o
 	$(CC) -o xap-$(XAP) $(XAP).c $(INCLUDES) $(LIBS) $(LFLAGS) shared.o
-	mv xap-$(XAP) ../bin/xap-$(XAP)
+	test -e ../bin || mkdir -p  ../bin
+	sudo mv xap-$(XAP) ../bin/xap-$(XAP)
 
 shared.o: shared.c shared.h
 	$(CC) -c shared.c $(INCLUDES) $(LIBS) $(CFLAGS)
 	
 clean:
-	rm -f xap-$(XAP) *.o ../bin/xap-$(XAP)
+	sudo rm -f xap-$(XAP) *.o ../bin/xap-$(XAP)
