@@ -4,7 +4,4 @@ ToDo List:
 - xap-config (8002)
 - xap-x10
 - xap-ecobee
-- xap-cc (script)
-- xap-cosm (script)
-- xap-sqlite (script)
 - autoarranque de aplicaciones

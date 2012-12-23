@@ -29,6 +29,7 @@
 
 	Last changes:
 
+	20/12/12 by Jose Luis Galindo: Add xAP-X10 schema
 	24/04/12 by Jose Luis Galindo: Recode and debug support
 	06/04/08 by Daniel Berenguer : web.service schema
 	22/04/07 by Daniel Berenguer : SMS functions added
@@ -74,8 +75,8 @@
 // xAP default settings
 #define XAP_PORT					3639				// Default UDP Port
 #define XAP_HBEAT_FREQ 				60					// Default Heartbeat interval in secs
-#define XAP_INFO_FREQ 				120					// Default Info messages interval in secs
-#define XAP_WSERV_FREQ				300					// Default seconds between each periodic server.start message
+#define XAP_INFO_FREQ 				600					// Default Info messages interval in secs
+#define XAP_WSERV_FREQ				600					// Default seconds between each periodic server.start message
 
 // xAP discover port range
 //#define XAP_LOWEST_PORT 			3640				// If XAP_PORT is not available try to use
@@ -104,6 +105,28 @@
 #define XAP_STATE_ON				"ON"				// BSC state ON
 #define XAP_STATE_OFF				"OFF"				// BSC state OFF
 #define XAP_STATE_TOGGLE			"TOGGLE"			// BSC state TOGGLE
+#define XAP_STATE_UNKNOWN			"?"					// BSC state UNKNOWN
+
+// xAP X10
+#define XAP_X10_CMD_ON				"ON"
+#define XAP_X10_CMD_OFF				"OFF"
+#define XAP_X10_CMD_DIM				"DIM"
+#define XAP_X10_CMD_BRIGHT			"BRIGHT"
+#define XAP_X10_CMD_ALL_LIGHTS_ON	"ALL_LIGHTS_ON"
+#define XAP_X10_CMD_ALL_LIGHTS_OFF	"ALL_LIGHTS_OFF"
+#define XAP_X10_CMD_ALL_UNITS_OFF	"ALL_UNITS_OFF"
+#define XAP_X10_CMD_HAIL_REQ		"HAIL_REQ"
+#define XAP_X10_EVN_HAIL_ACK		"HAIL_ACK"
+#define XAP_X10_CMD_PRESET_DIM_1	"PRESET_DIM_1"
+#define XAP_X10_CMD_PRESET_DIM_2	"PRESET_DIM_2"
+#define XAP_X10_EVN_STATUS_ON		"STATUS_ON"
+#define XAP_X10_EVN_STATUS_OFF		"STATUS_OFF"
+#define XAP_X10_CMD_STATUS_REQ		"STATUS_REQ"
+#define XAP_X10_CMD_EXT_DATA		"EXT_DATA"
+#define XAP_X10_CMD_EXT_CODE		"EXT_CODE"			// Not included in xAP-X10 schema
+#define XAP_X10_CMD_EXTENDED1		"EXTENDED1"			// Not included in xAP-X10 schema
+#define XAP_X10_CMD_EXTENDED2		"EXTENDED2"			// Not included in xAP-X10 schema
+#define XAP_X10_CMD_EXTENDED3		"EXTENDED3"			// Not included in xAP-X10 schema
 
 // xAP Intranet
 #define XAP_WEB_FIELD_LEN			255					// Maximum length of Web service fields
@@ -198,13 +221,13 @@ short int xapSendBSCevn(char *strSource, char *strUID, char *strValue, char *str
 short int xapSendBSCinf(char *strSource, char *strUID, char *strValue, char *strState, char *strDisplay, BYTE flgType);
 short int xapSendBSCcmd(char *strSource, char *strUID, char *strTarget, char *strValue, char *strState);
 short int xapSendBSCqry(char *strSource, char *strUID, char *strTarget);
-/*
+
 // xapx10.c functions:
 //-------------------------
-short int xapReadX10Body(int fdSocket, char *pBody, xaphead header, char *devlist, char *command, BYTE *level);
-short int xapSendX10evn(int fdSocket, char *strDevice, char *strUID, char *device, char *command, BYTE level);
-short int xapSendX10req(int fdSocket, char *strDevice, char *strUID, char *strTarget, char *device, char *command, BYTE level);
-*/
+short int xapReadX10Body(char *pBody, xAP_HEADER header, char *devlist, char *command, BYTE *value1, BYTE *value2);
+short int xapSendX10evn(char *strSource, char *strUID, char *device, char *command, BYTE value1, BYTE value2);
+short int xapSendX10req(char *strSource, char *strUID, char *strTarget, char *device, char *command, BYTE value1, BYTE value2);
+
 // xapsms.c functions:
 //-------------------------
 short int xapReadSMSBody(char *pBody, char *phoneNum, char *SMStext, BYTE *flgIncoming);
