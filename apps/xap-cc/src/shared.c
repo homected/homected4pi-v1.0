@@ -34,8 +34,13 @@
 // Create shared memory region for the shared variables
 short int ccSharedMemSetup(void)
 {
+	int memsize;
+	
+	// Calculate nums of pagesize needed
+	memsize = (sizeof(t_CC_CONFIG) % getpagesize()) ? (sizeof(t_CC_CONFIG)/getpagesize()) + 1 : (sizeof(t_CC_CONFIG)/getpagesize());
+		
 	// Create shared memory region for the shared variable 
-	if((shmCcConfig = shmget(SHMKEY_CCCFG, sizeof(t_CC_CONFIG), IPC_CREAT | 0666)) < 0)
+	if((shmCcConfig = shmget(SHMKEY_CCCFG, memsize, IPC_CREAT | 0666)) < 0)
 		return 0;
 
 	// Attach the shared variable to the shared memory area

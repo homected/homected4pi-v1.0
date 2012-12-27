@@ -34,8 +34,13 @@
 // Create shared memory region for the shared variables
 short int cosmSharedMemSetup(void)
 {
+	int memsize;
+	
+	// Calculate nums of pagesize needed
+	memsize = (sizeof(t_COSM_CONFIG) % getpagesize()) ? (sizeof(t_COSM_CONFIG)/getpagesize()) + 1 : (sizeof(t_COSM_CONFIG)/getpagesize());
+		
 	// Create shared memory region for the shared variable 
-	if((shmCosmConfig = shmget(SHMKEY_COSMCFG, sizeof(t_COSM_CONFIG), IPC_CREAT | 0666)) < 0)
+	if((shmCosmConfig = shmget(SHMKEY_COSMCFG, memsize, IPC_CREAT | 0666)) < 0)
 		return 0;
 
 	// Attach the shared variable to the shared memory area

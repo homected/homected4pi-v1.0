@@ -34,8 +34,13 @@
 // Create shared memory region for the shared variables
 short int hubSharedMemSetup(void)
 {
+	int memsize;
+	
+	// Calculate nums of pagesize needed
+	memsize = (sizeof(xAP_HUB_CONFIG) % getpagesize()) ? (sizeof(xAP_HUB_CONFIG)/getpagesize()) + 1 : (sizeof(xAP_HUB_CONFIG)/getpagesize());
+		
 	// Create shared memory region for the shared variable 
-	if((shmHubConfig = shmget(SHMKEY_HUBCFG, sizeof(xAP_HUB_CONFIG), IPC_CREAT | 0666)) < 0)
+	if((shmHubConfig = shmget(SHMKEY_HUBCFG, memsize, IPC_CREAT | 0666)) < 0)
 		return 0;
 
 	// Attach the shared variable to the shared memory area

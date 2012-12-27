@@ -34,8 +34,13 @@
 // Create shared memory region for the shared variables
 short int sqliteSharedMemSetup(void)
 {
+	int memsize;
+	
+	// Calculate nums of pagesize needed
+	memsize = (sizeof(t_SQLITE_CONFIG) % getpagesize()) ? (sizeof(t_SQLITE_CONFIG)/getpagesize()) + 1 : (sizeof(t_SQLITE_CONFIG)/getpagesize());
+		
 	// Create shared memory region for the shared variable 
-	if((shmSqliteConfig = shmget(SHMKEY_SQLITECFG, sizeof(t_SQLITE_CONFIG), IPC_CREAT | 0666)) < 0)
+	if((shmSqliteConfig = shmget(SHMKEY_SQLITECFG, memsize, IPC_CREAT | 0666)) < 0)
 		return 0;
 
 	// Attach the shared variable to the shared memory area
