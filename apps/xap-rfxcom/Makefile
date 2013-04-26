@@ -2,7 +2,7 @@
 #
 #	Makefile
 #
-#	Binaries makefile
+#	xap-rfxcom makefile
 #	
 #	Copyright (c) 2012 Jose Luis Galindo <support@homected.com>
 #	
@@ -25,30 +25,31 @@
 #	
 #	Last changes:
 #
-#	12/06/12 by Jose Luis Galindo: first version.
+#	27/11/12 by Jose Luis Galindo: first version.
 #
 #***************************************************************************/
 
-.PHONY: xap-hub xap-cc xap-cosm xap-sqlite
+.PHONY:  src
 
-all: xap-hub xap-cc xap-cosm xap-sqlite
+all: src copy_files chg_permissions 
 
-xap-hub:
-	$(MAKE) -s -C $@
-xap-cc:
-	$(MAKE) -s -C $@
-xap-cosm:
-	$(MAKE) -s -C $@
-xap-sqlite:
-	$(MAKE) -s -C $@
-xap-rfxcom:
-	$(MAKE) -s -C $@
+src:
+	$(MAKE) -C $@
 
 clean:
-	$(MAKE) -s -C xap-hub $@
-	$(MAKE) -s -C xap-cc $@
-	$(MAKE) -s -C xap-cosm $@
-	$(MAKE) -s -C xap-sqlite $@
-	$(MAKE) -s -C xap-rfxcom $@	
+	$(MAKE) -C src $@
+	sudo rm -f /usr/sbin/xap-rfxcom
+	sudo rm -f /etc/init.d/xap-rfxcom
 
+copy_files:
+	sudo mv /home/homected/apps/xap-rfxcom/bin/xap-rfxcom /usr/sbin/
+	sudo cp xap-rfxcom /etc/init.d/
+	sudo test -e /var/www/xap/connectors/xap-rfxcom/images || mkdir -p /var/www/xap/connectors/xap-rfxcom/images
+	sudo cp /home/homected/apps/xap-rfxcom/src/wserv.png /var/www/xap/connectors/xap-rfxcom/images/
 	
+chg_permissions:
+	sudo chmod 775 /usr/sbin/xap-rfxcom
+	sudo chown root:root /usr/sbin/xap-rfxcom
+	sudo chmod 755 /etc/init.d/xap-rfxcom
+	sudo chown root:root /etc/init.d/xap-rfxcom
+

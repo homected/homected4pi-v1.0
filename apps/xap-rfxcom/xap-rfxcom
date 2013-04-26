@@ -1,0 +1,26 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          xap-rfxcom
+# Required-Start:    $syslog
+# Required-Stop:     $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: xAP RFXCOM Connector
+# Description:
+#
+### END INIT INFO 
+
+case "$1" in
+        start)
+              /usr/sbin/xap-rfxcom
+              ;;
+        stop)
+              test -e /var/run/xap-rfxcom.pid || exit 2
+              kill `cat /var/run/xap-rfxcom.pid`
+              ;;
+        *)
+              echo "Use: $0 {start|stop}"
+              exit 1
+              ;;
+esac
+exit 0

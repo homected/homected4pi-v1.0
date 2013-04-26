@@ -1,0 +1,64 @@
+DECODIFICACION X10RF
+
+649B40BF A13-ON
+01100100 10011011 01000000 10111111
+00100110 11011001 00000010 11111101
+00100110 11011001 00000010 11111101 -> HouseCode Byte1 , UnitCode Byte3 
+00000010 11111101 00100110 11011001 -> Byte3 = 00100110 = House Code = A > 8
+00000010 11111101 00100110 11011001 -> Byte1 = 00000010 = Unit Code = 1101 = 13 ON
+
+649B609F A13-OFF
+01100100 10011011 01100000 10011111
+00100110 11011001 00000110 11111001
+00000110 11111001 00100110 11011001 -> Byte3 = 00100110 = House Code = A > 8
+00000110 11111001 00100110 11011001 -> Byte1 = 00000110 = Unit Code = 1101 = 13 OFF
+
+609F8877 A13-BRIGHT
+01100000 10011111 10001000 01110111
+00000110 11111001 00010001 11101110
+00010001 11101110 00000110 11111001 -> Byte3 = 00000110 = House Code = A
+00010001 11101110 00000110 11111001 -> Byte1 = 00010001 = Unit Code = 0011 = 3 BRIGHT
+
+
+609F9867 A13-DIM
+01100000 10011111 10011000 01100111
+00000110 11111001 00011001 11100110
+00011001 11100110 00000110 11111001 -> Byte3 = 00000110 = House Code = A
+00011001 11100110 00000110 11111001 -> Byte1 = 00011001 = Unit Code = 0100 = 4 DIM
+
+EN DISPOSITIVOS DE SEGURIDAD:
+Byte1 es el codigo de mensaje y Byte3 y Byte4 son el ID.
+
+Bytes 3 and 4 change when the 'code' button is hit on the security transmitter.
+We can consider these two bytes to encode the unit's 8 bit ID.
+
+Byte 1 is the message code.  This is as follows for a few units:
+
+Large security remote (SH624):
+        (has a min/max delay slide switch below the buttons)
+        ARM HOME (min)  0x70
+        ARM AWAY (min)  0x60
+        ARM HOME (max)  0x50
+        ARM AWAY (max)  0x40
+        DISARM          0x41
+        SEC. LIGHT ON   0x42
+        SEC. LIGHT OFF  0x43
+        PANIC           0x44
+
+        The other buttons transmit normal X10 remote codes 
+        for an RT-504 remote.
+
+Pendant (KF574):
+        ARM             0x60  (this is apparently min delay mode)
+        DISARM          0x61
+        LIGHTS ON       0x62
+        LIGHTS OFF      0x63
+
+Old door/window sensor (DW 534)
+        NORMAL          0x21 (for when security violation is removed)
+        ALERT           0x20 (for when sensor is tripped)
+        Supervision Code: transmits a NORMAL
+
+New door/window sensor
+        NORMAL          0x31
+        ALERT           0x30
