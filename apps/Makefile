@@ -29,9 +29,9 @@
 #
 #***************************************************************************/
 
-.PHONY: xap-hub xap-cc xap-cosm xap-sqlite
+.PHONY: xap-hub xap-cc xap-cosm xap-sqlite xap-rfxcom
 
-all: xap-hub xap-cc xap-cosm xap-sqlite
+all: xap-hub xap-cc xap-cosm xap-sqlite xap-rfxcom
 
 xap-hub:
 	$(MAKE) -s -C $@
