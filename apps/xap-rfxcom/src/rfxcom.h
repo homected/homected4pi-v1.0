@@ -22,9 +22,9 @@
 #define LOG_EVENTS_FILE				"xap-rfxcom_logevn.txt"	// Events log file
 #define LOG_ERRORS_FILE				"xap-rfxcom_logerr.txt"	// Errors log file
 #else
-#define SETTINGS_FILE				"/home/homected/config/xap-rfxcom.xml"		// Xml settings file
-#define LOG_EVENTS_FILE				"/home/homected/logs/xap-rfxcom_logevn.txt"	// Events log file
-#define LOG_ERRORS_FILE				"/home/homected/logs/xap-rfxcom_logerr.txt"	// Errors log file
+#define SETTINGS_FILE				"/etc/homected4pi/xap-rfxcom.xml"			// Xml settings file
+#define LOG_EVENTS_FILE				"/var/homected4pi/xap-rfxcom_logevn.txt"	// Events log file
+#define LOG_ERRORS_FILE				"/var/homected4pi/xap-rfxcom_logerr.txt"	// Errors log file
 #endif
 
 // xAP Web service
