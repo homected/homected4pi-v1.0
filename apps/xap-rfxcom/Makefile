@@ -42,10 +42,10 @@ clean:
 	sudo rm -f /etc/init.d/xap-rfxcom
 
 copy_files:
-	sudo mv /home/homected/apps/xap-rfxcom/bin/xap-rfxcom /usr/sbin/
+	sudo mv bin/xap-rfxcom /usr/sbin/
 	sudo cp xap-rfxcom /etc/init.d/
 	sudo test -e /var/www/xap/connectors/xap-rfxcom/images || mkdir -p /var/www/xap/connectors/xap-rfxcom/images
-	sudo cp /home/homected/apps/xap-rfxcom/src/wserv.png /var/www/xap/connectors/xap-rfxcom/images/
+	sudo cp src/wserv.png /var/www/xap/connectors/xap-rfxcom/images/
 	
 chg_permissions:
 	sudo chmod 775 /usr/sbin/xap-rfxcom
