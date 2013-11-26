@@ -52,4 +52,5 @@ chg_permissions:
 	sudo chown root:root /usr/sbin/xap-cc
 	sudo chmod 755 /etc/init.d/xap-cc
 	sudo chown root:root /etc/init.d/xap-cc
+	# Modify to match your serial port
 	sudo chmod o+rw /dev/ttyUSB0
